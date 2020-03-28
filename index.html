@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+    <title>weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="location">
+        <div class="x1">
+          <h1 class="location-timezone"></h1>
+        </div>
+        <div class="x2">
+          <canvas class="icon" width="128" height="128"></canvas>
+        </div>
+      </div>
+      <hr />
+      <div class="temperature">
+        <div class="degree-section">
+          <h2 class="degree"></h2>
+          <h3 class="unit"></h3>
+        </div>
+        <div class="description"></div>
+      </div>
+    </div>
+    <footer>
+      MADE BY
+      <a href="https://www.linkedin.com/in/hayat-tamboli/" target="_blank">
+        HAYAT TAMBOLI</a
+      ><br /><a href="https://darksky.net/poweredby/" target="_blank"
+        ><img
+          src="https://darksky.net/dev/img/attribution/poweredby-oneline-darkbackground.png"
+          alt="Powered bhy Dark Sky"
+          style="width: 10rem;"
+      /></a>
+    </footer>
+    <script src="./assets/app.js"></script>
+    <script src="./assets/skycons.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap");
+:root {
+  font-family: "Baloo Thambi 2", cursive;
+  font-size: 20px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+}
+::-webkit-scrollbar {
+  width: 0.2rem;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    to top,
+    rgb(156, 34, 255),
+    rgb(59, 111, 255)
+  );
+}
+body {
+  background-image: linear-gradient(
+    to top,
+    rgb(156, 34, 255),
+    rgb(59, 111, 255)
+  );
+  font-size: 1.7rem;
+}
+.container {
+  margin: auto;
+  height: 100vh;
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location-timezone {
+  padding: 0 2rem;
+}
+hr {
+  width: 60%;
+  height: 0.25rem;
+  background-color: white;
+}
+.degree-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.3rem;
+  width: fit-content;
+  z-index: +2;
+  width: fit-content;
+  padding: 0rem 1rem;
+  cursor: pointer;
+}
+.degree {
+  cursor: pointer;
+  padding: 0rem 1rem;
+  transition: 0.5s;
+}
+.degree:hover {
+  color: rgba(255, 179, 151, 0.466);
+}
+.unit {
+  transition: 0.5s;
+  cursor: pointer;
+}
+.unit:hover{
+  color: rgba(255, 179, 151, 0.466);
+
+}
+.description {
+  font-size: 1.2rem;
+  text-align: center;
+}
+footer {
+  background-image: linear-gradient(rgb(156, 34, 255), rgb(59, 111, 255));
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    font-size: 9.5px;
+  }
+  body {
+    min-height: 100vh;
+  }
+  .loctaion {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .container {
+    width: 100vw;
+  }
+  hr {
+    width: 80%;
+  }
+  .description {
+    font-size: 2rem;
+  }
+  .degree-section {
+    font-size: 3.5rem;
+  }
+  footer {
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  footer {
+    width: 105%;
+  }
+}
