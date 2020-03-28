@@ -19,6 +19,25 @@
     rgb(59, 111, 255)
   );
 }
+.preload {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1rem);
+  z-index: +5;
+  transition: 0.5s ease-in-out;
+}
+.preload img {
+  width: 15rem;
+  animation: rotate360 4s infinite;
+}
+.preload-finish{
+  opacity: 0;
+  pointer-events: none;
+}
 body {
   background-image: linear-gradient(
     to top,
@@ -73,9 +92,8 @@ hr {
   transition: 0.5s;
   cursor: pointer;
 }
-.unit:hover{
+.unit:hover {
   color: rgba(255, 179, 151, 0.466);
-
 }
 .description {
   font-size: 1.2rem;
@@ -128,5 +146,13 @@ footer a:hover {
 @media only screen and (max-width: 350px) {
   footer {
     width: 105%;
+  }
+}
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

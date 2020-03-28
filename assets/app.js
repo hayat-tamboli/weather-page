@@ -1,4 +1,6 @@
 window.addEventListener("load", () => {
+  const preload = document.querySelector('.preload');
+  preload.classList.add("preload-finish");
   let lat, lon;
   let temperatureDescription = document.querySelector(".description");
   let temperatureDegree = document.querySelector(".degree");
