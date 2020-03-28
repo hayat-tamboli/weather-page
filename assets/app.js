@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-      console.log(position);
       lon = position.coords.longitude;
       lat = position.coords.latitude;
 
@@ -19,7 +18,6 @@ window.addEventListener("load", () => {
           return response.json();
         })
         .then(data => {
-          console.log(data);
           const { temperature, summary, icon } = data.currently;
           let num = (temperature - 32) * (5 / 9);
           let celcius = num.toPrecision(4);
