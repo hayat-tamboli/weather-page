@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="this is a simple page which shows weather info of your place in a beautiful manner" />
+    <meta
+      name="description"
+      content="this is a simple page which shows weather info of your place in a beautiful manner"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <title>weather app</title>
@@ -11,20 +14,62 @@
   <body>
     <noscript>YOUR BROWSER DOES NOT SUPPORT JAVASCRIPT</noscript>
     <loading class="preload">
-      <img src="./assets/favicon.png" alt="LOADING"/>
-  </loading>
+      <img src="./assets/favicon.png" alt="LOADING" />
+    </loading>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item has-dropdown">
+          <a href="#">links</a>
+          <ul class="dropdown">
+            <li class="dropdown-item">
+              <a href="https://www.hackerrank.com/"><pre>Hacker rank </pre></a
+              ><a
+                ><img
+                  src="./assets/more.png"
+                  alt="more"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="http://www.youtube.com/"><pre>youtube </pre></a
+              ><a
+                ><img
+                  src="./assets/more.png"
+                  alt="more"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="http://www.github.com/"><pre>github </pre></a
+              ><a
+                ><img
+                  src="./assets/more.png"
+                  alt="more"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+            <li class="dropdown-item add-item">
+              <input type="text" name="dropdown-item" id="x" placeholder="link name">
+              <a href="#"><img src="./assets/plus.png" alt="add" width="20rem" style="filter: invert(1);"/></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
     <div class="container">
       <div class="location">
         <div class="x1">
-          <h1 class="location-timezone"></h1>
-        </div>
-        <div class="x2">
-          <canvas class="icon" width="128" height="128"></canvas>
+          <h1 class="time">13:29</h1>
         </div>
       </div>
       <hr />
       <div class="temperature">
         <div class="degree-section">
+          <canvas class="icon" width="128" height="128"></canvas>
           <h2 class="degree"></h2>
           <h3 class="unit"></h3>
         </div>
@@ -33,9 +78,16 @@
     </div>
     <footer>
       MADE BY
-      <a href="https://www.linkedin.com/in/hayat-tamboli/" target="_blank" rel="noreferrer">
+      <a
+        href="https://www.linkedin.com/in/hayat-tamboli/"
+        target="_blank"
+        rel="noreferrer"
+      >
         HAYAT TAMBOLI</a
-      ><br /><a href="https://darksky.net/poweredby/" target="_blank" rel="noreferrer"
+      ><br /><a
+        href="https://darksky.net/poweredby/"
+        target="_blank"
+        rel="noreferrer"
         ><img
           src="https://darksky.net/dev/img/attribution/poweredby-oneline-darkbackground.png"
           alt="Powered bhy Dark Sky"

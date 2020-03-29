@@ -1,10 +1,36 @@
+let Time = document.querySelector(".time");
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  h = checkTime(h);
+  m = checkTime(m);
+  if (h == 00) {
+    Time.innerHTML = 12 + ":" + m + " AM";
+  } else if (h < 12) {
+    Time.innerHTML = h + ":" + m + " AM";
+  }
+  else if(h==12){
+    Time.innerHTML = h + ":" + m + " PM";
+  }
+  else{
+    Time.innerHTML = h-12 + ":" + m + " PM";
+  }
+  var t = setTimeout(startTime, 10000);
+}
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  } // add zero in front of numbers < 10
+  return i;
+}
 window.addEventListener("load", () => {
-  const preload = document.querySelector('.preload');
+  startTime();
+  const preload = document.querySelector(".preload");
   preload.classList.add("preload-finish");
   let lat, lon;
   let temperatureDescription = document.querySelector(".description");
   let temperatureDegree = document.querySelector(".degree");
-  let locationTimezone = document.querySelector(".location-timezone");
   let temperatureSection = document.querySelector(".degree-section");
   const temperatureSpan = document.querySelector(".degree-section h3");
 
@@ -25,7 +51,6 @@ window.addEventListener("load", () => {
           let celcius = num.toPrecision(4);
           temperatureDegree.textContent = celcius + "°";
           temperatureDescription.textContent = summary;
-          locationTimezone.textContent = data.timezone;
           //(x-32)*5/9 F=C
           //set icon
           setIcons(icon, document.querySelector(".icon"));
