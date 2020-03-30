@@ -78,4 +78,24 @@ window.addEventListener("load", () => {
       "we can't show you the weather if u don't allow us to access your location"
     );
   }
+
+  //for random quotes
+  let quotes = document.querySelector(".quote-text");
+  fetch(`https://quotes15.p.rapidapi.com/quotes/random/?language_code=en`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "quotes15.p.rapidapi.com",
+		"x-rapidapi-key": "afb1d9f079msh8d9ad31bf2f8fa0p1cbe57jsn286d3344856f"
+	}
+})
+.then(response => {
+  return response.json();
+})
+.then(data =>{
+  const {content}=data;
+  quotes.textContent=`"${content}"`;
+})
+.catch(err => {
+	console.log(err);
+});
 });
