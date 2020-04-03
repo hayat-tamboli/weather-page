@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
   let temperatureSection = document.querySelector(".degree-section");
   const temperatureSpan = document.querySelector(".degree-section h3");
 
-  if (navigator.geolocation) {
+  if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(position => {
       lon = position.coords.longitude;
       lat = position.coords.latitude;
@@ -74,12 +74,12 @@ window.addEventListener("load", () => {
         });
     });
   } else {
-    alert(
-      "we can't show you the weather if u don't allow us to access your location"
-    );
+    const locationOFF=document.querySelector('.locationOFF');
+    locationOFF.textContent="please turn on your location";
   }
 
   //for random quotes
+
   let quotes = document.querySelector(".quote-text");
   fetch(`https://quotes15.p.rapidapi.com/quotes/random/?language_code=en`, {
 	"method": "GET",
@@ -98,4 +98,31 @@ window.addEventListener("load", () => {
 .catch(err => {
 	console.log(err);
 });
+
+//covid-19 cases in india
+
+const totalCases = document.querySelector(".total-cases");
+const deaths = document.querySelector(".deaths");
+const recovered = document.querySelector(".recovered");
+fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=India", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+		"x-rapidapi-key": "afb1d9f079msh8d9ad31bf2f8fa0p1cbe57jsn286d3344856f"
+	}
+})
+.then(response => {
+  return response.json();
+})
+.then(data =>{
+  const {total_cases,total_deaths,total_recovered}=data.latest_stat_by_country[`${0}`];
+  totalCases.textContent="TC-"+total_cases;
+  deaths.textContent="D-"+total_deaths;
+  recovered.textContent="R-"+total_recovered;
+  
+})
+.catch(err => {
+	console.log(err);
+});
+
 });

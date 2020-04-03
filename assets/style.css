@@ -41,6 +41,16 @@ body {
   font-size: 1.7rem;
   overflow-x: hidden;
 }
+
+.covid-19India {
+  font-size: 1.5rem;
+  display: flex;
+  padding-top: 0.5rem;
+}
+.indian-flag {
+  width: 2rem;
+  padding-top: 0.3rem;
+}
 /*bookmarks*/
 .navbar {
   height: 3rem;
@@ -100,6 +110,13 @@ body {
 }
 .nav-item {
   padding: 0 1rem;
+  color: #ffffff;
+}
+.recovered {
+  color: rgb(152, 255, 152);
+}
+.deaths {
+  color: rgb(255, 160, 160);
 }
 .nav-item a {
   color: #ffffff;
@@ -180,10 +197,10 @@ hr {
   position: absolute;
   bottom: 1rem;
   height: fit-content;
-  width: 100%;
+  width: 85%;
 }
 .quote-text {
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   text-align: center;
   font-weight: 200;
 }

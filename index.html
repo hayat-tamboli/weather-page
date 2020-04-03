@@ -18,6 +18,19 @@
     </loading>
     <nav class="navbar">
       <ul class="navbar-nav">
+        <!--latest covid-19 stats-->
+        <div class="covid-19India">
+          <li class="nav-item">
+            <img
+              src="./assets/india_flag.png"
+              alt="india"
+              class="indian-flag"
+            />
+          </li>
+          <li class="nav-item total-cases">TC-</li>
+          <li class="nav-item deaths">D-</li>
+          <li class="nav-item recovered">R-</li>
+        </div>
         <!-- Dropdown -->
         <li class="nav-item has-dropdown">
           <a href="#">links</a>
@@ -79,20 +92,18 @@
       </div>
       <hr />
       <div class="temperature">
+        <span class="locationOFF"></span>
         <div class="degree-section">
           <canvas class="icon" width="128" height="128"></canvas>
           <h2 class="degree"></h2>
-          <h3 class="unit">
-            <pre>
-trouble connecting...
-turn on your location services</pre
-            >
-          </h3>
+          <h3 class="unit"></h3>
         </div>
         <div class="description"></div>
       </div>
       <div class="quotes">
-        <h4 class="quote-text"></h4>
+        <h4 class="quote-text">
+          trouble connecting...
+        </h4>
       </div>
     </div>
     <footer>
