@@ -8,10 +8,11 @@
       content="this is a simple page which shows weather info of your place in a beautiful manner"
     />
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/webfonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <title>weather app</title>
   </head>
-  <body>
+  <body class="morning">
     <noscript>YOUR BROWSER DOES NOT SUPPORT JAVASCRIPT</noscript>
     <loading class="preload">
       <img src="./assets/favicon.png" alt="LOADING" />
@@ -19,6 +20,7 @@
     <nav class="navbar">
       <ul class="navbar-nav">
         <!--latest covid-19 stats-->
+        <a href="https://www.worldometers.info/coronavirus/country/india/" class="covid-19IndiaLink">
         <div class="covid-19India">
           <li class="nav-item">
             <img
@@ -31,8 +33,9 @@
           <li class="nav-item deaths">D-</li>
           <li class="nav-item recovered">R-</li>
         </div>
+      </a>
         <!-- Dropdown -->
-        <li class="nav-item has-dropdown">
+    <!--<li class="nav-item has-dropdown">
           <a href="#">links</a>
           <ul class="dropdown">
             <li class="dropdown-item">
@@ -81,7 +84,8 @@
               /></a>
             </li>
           </ul>
-        </li>
+        </li>-->
+        <li class="nav-item"><button class="info"><img src="./assets/info.png" alt="i" style="filter: invert(1);"></button></li>
       </ul>
     </nav>
     <div class="container">
@@ -104,6 +108,9 @@
         <h4 class="quote-text">
           trouble connecting...
         </h4>
+        <h4 class="quote-author">
+        </h4>
+
       </div>
     </div>
     <footer>
@@ -123,6 +130,7 @@
           alt="Powered bhy Dark Sky"
           style="width: 10rem;"
       /></a>
+      <!--Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
     </footer>
     <script src="./assets/app.js"></script>
     <script src="./assets/skycons.js"></script>
