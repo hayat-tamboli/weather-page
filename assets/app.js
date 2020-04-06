@@ -1,5 +1,6 @@
+const preload = document.querySelector(".preload");
 let Time = document.querySelector(".time");
-function startTime() {
+let startTime = async ()=> {
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
@@ -9,24 +10,32 @@ function startTime() {
     Time.innerHTML = 12 + ":" + m + " AM";
   } else if (h < 12) {
     Time.innerHTML = h + ":" + m + " AM";
-  }
-  else if(h==12){
+  } else if (h == 12) {
     Time.innerHTML = h + ":" + m + " PM";
-  }
-  else{
-    Time.innerHTML = h-12 + ":" + m + " PM";
+  } else {
+    Time.innerHTML = h - 12 + ":" + m + " PM";
   }
   var t = setTimeout(startTime, 10000);
+  function theme(hour) {
+    if (hour >= 16) {
+      document.querySelector("body").classList.replace("morning", "evening");
+    }
+  }
+  theme(h);
 }
-function checkTime(i) {
+let checkTime = (i)=> {
   if (i < 10) {
     i = "0" + i;
   } // add zero in front of numbers < 10
   return i;
 }
+window.addEventListener("offline", () => {
+  startTime();
+  alert("you are offline");
+  preload.classList.add("preload-finish");
+});
 window.addEventListener("load", () => {
   startTime();
-  const preload = document.querySelector(".preload");
   preload.classList.add("preload-finish");
   let lat, lon;
   let temperatureDescription = document.querySelector(".description");
@@ -35,17 +44,17 @@ window.addEventListener("load", () => {
   const temperatureSpan = document.querySelector(".degree-section h3");
 
   if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       lon = position.coords.longitude;
       lat = position.coords.latitude;
 
       const proxy = "https://cors-anywhere.herokuapp.com/";
       const api = `${proxy}https://api.darksky.net/forecast/e1860b64a0659d4b8db4b7ecd8ba2840/${lat},${lon}`;
       fetch(api)
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           const { temperature, summary, icon } = data.currently;
           let num = (temperature - 32) * (5 / 9);
           let celcius = num.toPrecision(4);
@@ -74,55 +83,56 @@ window.addEventListener("load", () => {
         });
     });
   } else {
-    const locationOFF=document.querySelector('.locationOFF');
-    locationOFF.textContent="please turn on your location";
+    const locationOFF = document.querySelector(".locationOFF");
+    locationOFF.textContent = "please turn on your location";
   }
 
   //for random quotes
 
-  let quotes = document.querySelector(".quote-text");
-  fetch(`https://quotes15.p.rapidapi.com/quotes/random/?language_code=en`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "quotes15.p.rapidapi.com",
-		"x-rapidapi-key": "afb1d9f079msh8d9ad31bf2f8fa0p1cbe57jsn286d3344856f"
-	}
-})
-.then(response => {
-  return response.json();
-})
-.then(data =>{
-  const {content}=data;
-  quotes.textContent=`"${content}"`;
-})
-.catch(err => {
-	console.log(err);
-});
+  let quotesText = document.querySelector(".quote-text");
+  let quotesAuthor = document.querySelector(".quote-author");
+  fetch(`https://favqs.com/api/qotd`, {})
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const { body, author } = data.quote;
+      quotesText.textContent = `"${body}"`;
+      quotesAuthor.textContent = `-${author}`;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
-//covid-19 cases in india
+  //covid-19 cases in india
 
-const totalCases = document.querySelector(".total-cases");
-const deaths = document.querySelector(".deaths");
-const recovered = document.querySelector(".recovered");
-fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=India", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-		"x-rapidapi-key": "afb1d9f079msh8d9ad31bf2f8fa0p1cbe57jsn286d3344856f"
-	}
-})
-.then(response => {
-  return response.json();
-})
-.then(data =>{
-  const {total_cases,total_deaths,total_recovered}=data.latest_stat_by_country[`${0}`];
-  totalCases.textContent="TC-"+total_cases;
-  deaths.textContent="D-"+total_deaths;
-  recovered.textContent="R-"+total_recovered;
-  
-})
-.catch(err => {
-	console.log(err);
-});
-
+  const totalCases = document.querySelector(".total-cases");
+  const deaths = document.querySelector(".deaths");
+  const recovered = document.querySelector(".recovered");
+  fetch(
+    "https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=India",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+        "x-rapidapi-key": "afb1d9f079msh8d9ad31bf2f8fa0p1cbe57jsn286d3344856f",
+      },
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const {
+        total_cases,
+        total_deaths,
+        total_recovered,
+      } = data.latest_stat_by_country[`${0}`];
+      totalCases.textContent = "TC-" + total_cases;
+      deaths.textContent = "D-" + total_deaths;
+      recovered.textContent = "R-" + total_recovered;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });

@@ -1,9 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap");
 :root {
-  font-family: "Baloo Thambi 2", cursive;
-  font-size: 20px;
-  --purple: rgb(156, 34, 255);
-  --blue: rgb(59, 111, 255);
+  font-family: "archiaregular";
+  font-size: 16px;
 }
 * {
   margin: 0;
@@ -11,11 +8,21 @@
   box-sizing: border-box;
   cursor: default;
 }
+.evening {
+  --color1: #9c22ff;
+  --color2: #3b6fff;
+  --bgGradient: linear-gradient(to top, var(--color1), var(--color2));
+}
+.morning {
+  --color1: #F8AE1A;
+  --color2: #FA7312;
+  --bgGradient: linear-gradient(to top, var(--color1), var(--color2));
+}
 ::-webkit-scrollbar {
   width: 0.2rem;
 }
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to top, var(--purple), var(--blue));
+  background-image: var(--bgGradient);
 }
 .preload {
   position: fixed;
@@ -31,25 +38,38 @@
 .preload img {
   width: 15rem;
   animation: rotate360 4s infinite;
+  filter: invert(1);
 }
 .preload-finish {
   opacity: 0;
   pointer-events: none;
 }
 body {
-  background-image: linear-gradient(to top, var(--purple), var(--blue));
+  background-image: var(--bgGradient);
   font-size: 1.7rem;
   overflow-x: hidden;
 }
-
+/*live covid-19 counter in india*/
 .covid-19India {
   font-size: 1.5rem;
   display: flex;
   padding-top: 0.5rem;
+  cursor: pointer;
 }
 .indian-flag {
   width: 2rem;
   padding-top: 0.3rem;
+  cursor: pointer;
+}
+.covid-19IndiaLink {
+  text-decoration: none;
+  cursor: pointer;
+}
+.total-cases,
+.deaths,
+.recovered {
+  cursor: pointer;
+  text-shadow: black 3px;
 }
 /*bookmarks*/
 .navbar {
@@ -65,7 +85,7 @@ body {
   height: 100%;
 }
 
-.dropdown {
+/*.dropdown {
   position: absolute;
   width: fit-content;
   height: fit-content;
@@ -103,7 +123,7 @@ body {
   cursor: pointer;
   pointer-events: none;
   font-size: 1rem;
-}
+}*/
 .nav-item,
 .dropdown-item {
   list-style: none;
@@ -112,18 +132,30 @@ body {
   padding: 0 1rem;
   color: #ffffff;
 }
+.total-cases{
+  color: #666666;
+  background-color: #e6e6e6;
+  border: 10px;
+  border-color: #666666;
+}
 .recovered {
-  color: rgb(152, 255, 152);
+  color: green;
+  background-color: #abffab;
+  border: 10px;
+  border-color: green;
 }
 .deaths {
-  color: rgb(255, 160, 160);
+  color: red;
+  background-color: #ffb7b7;
+  border: 10px;
+  border-color: #666666;
 }
 .nav-item a {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
-.dropdown-item {
+/*.dropdown-item {
   height: 2rem;
   display: flex;
   align-items: center;
@@ -135,7 +167,7 @@ body {
   align-items: center;
 }
 .add-item input {
-  background-color: rgba(240, 248, 255, 0.15);
+  background-color: #f0f8ff26;
   border: none;
   height: 1.3rem;
   margin-bottom: 0.6rem;
@@ -143,6 +175,12 @@ body {
 .add-item input::placeholder {
   color: rgb(214, 214, 214);
   padding-left: 0.5rem;
+}*/
+.info
+{
+  background: none;
+  border: none;
+  outline: none;
 }
 /**/
 .container {
@@ -200,12 +238,30 @@ hr {
   width: 85%;
 }
 .quote-text {
-  font-size: 1.25rem;
+  height: 2rem;
+  font-size: 1.2rem;
   text-align: center;
   font-weight: 200;
+  transition: all 0.5s;
+}
+.quote-text:hover {
+  transform: translateY(-1rem);
+}
+.quote-author {
+  opacity: 0;
+  pointer-events: none;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 100;
+  transform: translateY(-1rem);
+  transition: all 0.5s;
+}
+.quote-text:hover + .quote-author {
+  opacity: 1;
+  transform: translateY(0);
 }
 footer {
-  background-image: linear-gradient(var(--purple), var(--blue));
+  background-image: var(--bgGradient);
   color: white;
   text-align: center;
   font-size: 1rem;
@@ -252,6 +308,9 @@ footer a:hover {
   footer {
     font-size: 2rem;
     width: 100%;
+  }
+  .quotes-author {
+    display: none;
   }
 }
 @media only screen and (max-width: 350px) {
