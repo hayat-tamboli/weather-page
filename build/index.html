@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="msapplication-starturl" content="/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="this is a simple page which shows weather info of your place in a beautiful manner"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/webfonts/stylesheet.css"
+      type="text/css"
+      charset="utf-8"
+    />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+    <title>weather app</title>
+  </head>
+  <body class="morning">
+    <noscript>YOUR BROWSER DOES NOT SUPPORT JAVASCRIPT</noscript>
+    <loading class="preload">
+      <!--<img src="./assets/favicon.png" alt="LOADING" />-->
+      <div id="circle_container">
+        <div id="stars"></div>
+        <div id="load_wrapper">
+          <div id="sun"></div>
+          <div id="moon"></div>
+        </div>
+      </div>
+      <h1 id="loading_text">Loading</h1>
+    </loading>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <!--latest covid-19 stats-->
+        <a
+          href="https://www.covid19india.org/"
+          class="covid-19IndiaLink"
+          target="_blank"
+        >
+          <div class="covid-19India">
+            <li class="nav-item">
+              <img
+                src="./assets/india_flag.png"
+                alt="india"
+                class="indian-flag"
+              />
+            </li>
+            <li class="nav-item total-cases">TC-</li>
+            <li class="nav-item deaths">D-</li>
+            <li class="nav-item recovered">R-</li>
+          </div>
+        </a>
+        <!-- Dropdown -->
+        <!--<li class="nav-item has-dropdown">
+          <a href="#">links</a>
+          <ul class="dropdown">
+            <li class="dropdown-item">
+              <a href="https://www.hackerrank.com/"><pre>Hacker rank </pre></a
+              ><a
+                ><img
+                  src="./assets/more.png"
+                  alt="more"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="http://www.youtube.com/"><pre>youtube </pre></a
+              ><a
+                ><img
+                  src="./assets/more.png"
+                  alt="more"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="http://www.github.com/"><pre>github </pre></a
+              ><a
+                ><img
+                  src="./assets/more.png"
+                  alt="more"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+            <li class="dropdown-item add-item">
+              <input
+                type="text"
+                name="dropdown-item"
+                id="x"
+                placeholder="link name"
+              />
+              <a href="#"
+                ><img
+                  src="./assets/plus.png"
+                  alt="add"
+                  width="20rem"
+                  style="filter: invert(1);"
+              /></a>
+            </li>
+          </ul>
+        </li>-->
+        <li class="nav-item">
+          <button class="info">
+            <img
+              src="./assets/info.png"
+              alt="i"
+              style="filter: invert(0); margin-top: 1rem;"
+              onclick="info()"
+            />
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div class="information info-closed">
+      <p>
+        MADE BY
+        <a
+          href="https://www.linkedin.com/in/hayat-tamboli/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          HAYAT TAMBOLI</a
+        ><br /><a
+          href="https://darksky.net/poweredby/"
+          target="_blank"
+          rel="noreferrer"
+          ><img
+            src="https://darksky.net/dev/img/attribution/poweredby-oneline-darkbackground.png"
+            alt="Powered by Dark Sky"
+            style="width: 10rem; filter: invert(1);"
+        /></a>
+        <!--Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+      </p>
+      <div class="github-btn">
+        <a
+          href="https://github.com/hayat-tamboli/weather-page"
+          target="_blank"
+          class="btn --animated"
+        >
+          <span class="uppercase"
+            ><img
+              src="https://image.flaticon.com/icons/svg/2111/2111425.svg"
+              alt=""
+              class="github-logo"
+            />open sourced on github</span
+          >
+        </a>
+      </div>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi eaque
+        iusto eveniet sed odio nemo voluptas minima rem sequi beatae, quisquam
+        dicta doloremque earum animi incidunt in unde officia dignissimos
+        repellendus.
+      </p>
+    </div>
+    <div class="container">
+      <div class="location">
+        <div class="x1">
+          <h1 class="time"></h1>
+        </div>
+      </div>
+      <hr />
+      <div class="temperature">
+        <span class="locationOFF"></span>
+        <div class="degree-section">
+          <canvas class="icon" width="128" height="128"></canvas>
+          <h2 class="degree"></h2>
+          <h3 class="unit"></h3>
+        </div>
+        <div class="description"></div>
+      </div>
+      <div class="quotes">
+        <h4 class="quote-text">
+          trouble connecting...
+        </h4>
+        <h4 class="quote-author"></h4>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+    <script src="./js/skycons.js"></script>
+    <script>
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+      </script>
+  </body>
+</html>
