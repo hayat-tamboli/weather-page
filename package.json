@@ -1,0 +1,14 @@
+{
+  "name": "weatherforu",
+  "version": "1.0.0",
+  "description": "a simple weather app with some extra features",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server -p 1336 build -c-1"
+  },
+  "author": "Hayat Tamboli",
+  "license": "MIT",
+  "dependencies": {
+    "workbox": "0.0.0"
+  }
+}

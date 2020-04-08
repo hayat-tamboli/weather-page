@@ -1,6 +1,17 @@
 const preload = document.querySelector(".preload");
+
+const information = document.querySelector(".information");
+let openClose = 0;
+const info = async () => {
+  if(openClose%2==0)
+  information.classList.replace("info-closed", "info-open");
+  else
+  information.classList.replace("info-open", "info-closed");
+
+  openClose++;
+};
 let Time = document.querySelector(".time");
-let startTime = async ()=> {
+let startTime = async () => {
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
@@ -22,13 +33,13 @@ let startTime = async ()=> {
     }
   }
   theme(h);
-}
-let checkTime = (i)=> {
+};
+let checkTime = (i) => {
   if (i < 10) {
     i = "0" + i;
   } // add zero in front of numbers < 10
   return i;
-}
+};
 window.addEventListener("offline", () => {
   startTime();
   alert("you are offline");
